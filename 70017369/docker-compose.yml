@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  busy1:
+    image: progrium/busybox
+    command: sleep 3600
+    network_mode: "host"
+

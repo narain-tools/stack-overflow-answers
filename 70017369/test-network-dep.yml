@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-network-dep
+  labels:
+    app: test-network
+spec:
+  selector:
+    matchLabels:
+      app: test-network
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: test-network
+    spec:
+      hostNetwork: true
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+              protocol: TCP
+
